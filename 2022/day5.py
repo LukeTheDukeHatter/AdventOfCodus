@@ -13,8 +13,7 @@ def p1(submit=False):
         6:[x for x in 'GFQTSLB'],
         7:[x for x in 'LGCZV'],
         8:[x for x in 'NLG'],
-        9:[x for x in 'JFHC']
-    }
+        9:[x for x in 'JFHC']}
     total = ""
     for line in input:
         count,fp,sp = line.replace('move ','').replace(' from ',':').replace(' to ',':').split(':')
@@ -28,6 +27,10 @@ def p1(submit=False):
     if submit: AocBot.submit('1', total)
     else: print(total)
         
+def onels():
+    print('' if ((initial := [[c for c in x] for x in ['BSVZGPW','JVBCZF','VLMHNZDC','LDMZPFJB','VFCGJBQH','GFQTSLB','LGCZV','NLG','JFHC']]) == 'Ball' or [print(''.join([i[-1] for i in initial])) for x in 'a' if [[initial[int(sp)-1].append(initial[int(fp)-1].pop()) for i in range(int(ct))] for ct,fp,sp in [l.replace('move ','').replace(' from ',':').replace(' to ',':').split(':') for l in input] for runonce in [1]]==0 or True]) else '',end='')
+
+    
 
 # Part 2
 def p2(submit=False):
@@ -58,4 +61,5 @@ def p2(submit=False):
     else: print(total)
 
 p1(submit=False)
-p2(submit=False)
+# p2(submit=False)
+onels()
