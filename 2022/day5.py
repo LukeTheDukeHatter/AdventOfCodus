@@ -29,6 +29,8 @@ def p1(submit=False):
         
 def onels():
     print('' if ((initial := [[c for c in x] for x in ['BSVZGPW','JVBCZF','VLMHNZDC','LDMZPFJB','VFCGJBQH','GFQTSLB','LGCZV','NLG','JFHC']]) == 'Ball' or [print(''.join([i[-1] for i in initial])) for x in 'a' if [[initial[int(sp)-1].append(initial[int(fp)-1].pop()) for i in range(int(ct))] for ct,fp,sp in [l.replace('move ','').replace(' from ',':').replace(' to ',':').split(':') for l in input] for runonce in [1]]==0 or True]) else '',end='')
+    print('' if ((initial := [[c for c in x] for x in ['BSVZGPW','JVBCZF','VLMHNZDC','LDMZPFJB','VFCGJBQH','GFQTSLB','LGCZV','NLG','JFHC']]) == 'Ball' or [print(''.join([i[-1] for i in initial])) for x in 'a' if [[initial[int(sp)-1].append(i) for i in [initial[int(fp)-1].pop() for pp in range(count)][::-1]] for ct,fp,sp in [l.replace('move ','').replace(' from ',':').replace(' to ',':').split(':') for l in input] for runonce in [1]]==0 or True]) else '',end='')
+
 
     
 
