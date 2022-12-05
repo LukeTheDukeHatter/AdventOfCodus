@@ -36,8 +36,37 @@ def p2(submit=False):
     if submit: AocBot.submit('2', total)
     else: print(total)
 
-# p1(submit=False)
-p2()
+
+def p1(submit=False):
+    calories = [[]]
+
+    # Read the input
+    for line in input:
+        try:
+            if line == "":
+                # If we encounter a blank line, start a new list for the next Elf
+                calories.append([])
+            else:
+                # Add the number of calories for the current Elf
+                calories[-1].append(int(line))
+        except EOFError:
+            # Stop reading input when we reach the end of the file
+            break
+
+    # Calculate the total calories for each Elf
+    elf_calories = [sum(elf) for elf in calories]
+
+    # Find the Elf with the most calories
+    most_calories = max(elf_calories)
+
+    # Print the result
+    print(most_calories)
+
+
+p1(submit=False)
+# p2(submit=False)
+
+
 
 
 
