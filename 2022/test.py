@@ -1,1 +1,1 @@
-a,b = [0,1,2],a[0]
+bb = [[testing := 'abfgern' for ro in '1'],[print(testing) for rt in '444']]

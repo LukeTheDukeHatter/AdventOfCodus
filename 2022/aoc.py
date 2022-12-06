@@ -12,7 +12,10 @@ def HandleLocalData(filename):
         input=[]
         for l in tl:
             input.append(l.strip())
-        return input
+        if len(input) == 1:
+            return input[0]
+        else:
+            return input
 
 def FetchData(day, year):
     import requests
@@ -24,7 +27,10 @@ def FetchData(day, year):
             tl=file.readlines()
             for l in tl:
                 output.append(l.strip())
-            return output
+            if len(output) == 1:
+                return output[0]
+            else:
+                return output
     else:
         response = requests.get(f"https://adventofcode.com/{year}/day/{day}/input", cookies=CookieDic)
         content = response.content.decode('latin')
@@ -36,7 +42,11 @@ def FetchData(day, year):
 
     if len(output)>1:
         output.pop()
-    return output
+
+    if len(output) == 1:
+        return output[0]
+    else:
+        return output
 
 def Submit(answer, part, day, year):
     import requests

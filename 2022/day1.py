@@ -19,6 +19,9 @@ def p1(submit=False):
     if submit: AocBot.submit('1', total)
     else: print(total)
         
+def onels():
+    print(max([sum([int(l) if l != '' else 0 for l in item.split('\n')]) for item in '\n'.join(input).split('\n\n')]))
+    print(sum(sorted([sum([int(l) if l != '' else 0 for l in item.split('\n')]) for item in '\n'.join(input).split('\n\n')])[-3:]))
 
 # Part 2
 def p2(submit=False):
@@ -64,8 +67,8 @@ def p1(submit=False):
 
 
 p1(submit=False)
-# p2(submit=False)
-
+p2(submit=False)
+onels()
 
 
 

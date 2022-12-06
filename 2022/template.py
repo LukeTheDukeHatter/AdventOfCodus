@@ -11,7 +11,8 @@ def p1(submit=False):
     if submit: AocBot.submit('1', total)
     else: print(total)
         
-
+def onels():
+    ...
 # Part 2
 def p2(submit=False):
     total = 0
@@ -23,3 +24,4 @@ def p2(submit=False):
 
 p1(submit=False)
 p2(submit=False)
+onels()
