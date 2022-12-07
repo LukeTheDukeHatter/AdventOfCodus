@@ -8,20 +8,20 @@ input = AocBot.data
 
 # Part 1
 def p1(submit=False):
-    # total = []
-    # for line in input:
-    #     if line.startswith('$ cd'):
-    #         total.append(line[2:])
-    #     elif line.startswith('$ ls'):
-    #         continue
-    #     elif line.startswith('dir'):
-    #         total.append('mk'+line)
-    #     else:
-    #         total.append(f"echo \" \" > {line.split(' ')[0]}.txt")
+     total = []
+     for line in input:
+         if line.startswith('$ cd'):
+             total.append(line[2:])
+         elif line.startswith('$ ls'):
+             continue
+         elif line.startswith('dir'):
+             total.append('mk'+line)
+         else:
+             total.append(f"echo \" \" > {line.split(' ')[0]}.txt")
 
-    # with open('./Day7FAroundFindOutFolder/runme.sh','w') as f:
-    #     for x in total:
-    #         f.write(x+'\n')
+     with open('./Day7FAroundFindOutFolder/runme.sh','w') as f:
+         for x in total:
+             f.write(x+'\n')
 
 
     # [open('./Day7FAroundFindOutFolder/runme.sh','a+').write(x+'\n') for x in [line[2:] if line.startswith('$ cd') else 'mk'+line if line.startswith('dir') else f"echo \" \" > {line.split(' ')[0]}.txt" for line in input if not line.startswith('$ ls')]]
@@ -29,29 +29,29 @@ def p1(submit=False):
 
 
 
-    path = './Day7FAroundFindOutFolder'
-    lest = []
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            if file.endswith(".txt"):
-                lest.append(os.path.join(root, file).replace('./Day7FAroundFindOutFolder/','').replace('.txt',''))
+    #path = './Day7FAroundFindOutFolder'
+    #lest = []
+    #for root, dirs, files in os.walk(path):
+    #    for file in files:
+    #        if file.endswith(".txt"):
+    #            lest.append(os.path.join(root, file).replace('./Day7FAroundFindOutFolder/','').replace('.txt',''))
 
 
-    data = {}
+    #data = {}
+    
+    #for x in lest: 
+    #    for p in x.split('/')[:-1]:
+    #        if p in data: data[p] += int(x.split('/')[-1])
+    #        else: data[p] = int(x.split('/')[-1])
 
-    for x in lest: 
-        for p in x.split('/')[:-1]:
-            if p in data: data[p] += int(x.split('/')[-1])
-            else: data[p] = int(x.split('/')[-1])
+    #total = 0
 
-    total = 0
+    #for k,v in data.items():
+    #    if v <= 100000:
+    #        total += v
 
-    for k,v in data.items():
-        if v <= 100000:
-            total += v
-
-    if submit: AocBot.submit('1', total)
-    else: print(total)
+    #if submit: AocBot.submit('1', total)
+    #else: print(total)
         
 def onels():
     ...
