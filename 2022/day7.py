@@ -23,15 +23,25 @@ def p1(submit=False):
     #     for x in total:
     #         f.write(x+'\n')
 
+
+    # total = [line[2:] if line.startswith('$ cd') else 'mk'+line if line.startswith('dir') else f"echo \" \" > {line.split(' ')[0]}.txt" for line in input if not line.startswith('$ ls')]
+    # [open('./Day7FAroundFindOutFolder/runme.sh','w').write(x+'\n') for x in total]
+
+
+    lest = [os.path.join(root, file).replace('./Day7FAroundFindOutFolder/','').replace('.txt','') for file in [files for root,first,files in os.walk(path)] if file.endswith('.txt')]
+
+    data = {}
+
+    for x in lest: 
+        for p in x.split('/')[:-1]:
+            if p in data: data[p] += int(x.split('/')[-1])
+            else: data[p] = int(x.split('/')[-1])
+
     total = 0
 
-    for root,dirs,files in os.walk('/Day7FAroundFindOutFolder'):
-        for file in files:
-            if file.endswith('.txt'):
-                total += int(file.split('.')[0])
-                
-    
-
+    for k,v in data:
+        if v < 100000:
+            total += v
 
     if submit: AocBot.submit('1', total)
     else: print(total)

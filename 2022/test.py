@@ -6,9 +6,8 @@ total = []
 # start in the current directory
 path = "./Day7FAroundFindOutFolder"
 
-[os.path.join(root,file).replace('./Day7FAroundFindOutFolder/','') if file.endswith('.txt') else None for file in [for root,dirs,files in os.walk(path)]]
+[os.path.join(root, file).replace('./Day7FAroundFindOutFolder/','').replace('.txt','') for file in [files for root,first,files in os.walk(path)] if file.endswith('.txt')]
 
-[os.path.join(root, file).replace('./Day7FAroundFindOutFolder/','') if file.endswith('.txt') else None for file []]
 
 for root, dirs, files in os.walk(path):
     for file in files:
