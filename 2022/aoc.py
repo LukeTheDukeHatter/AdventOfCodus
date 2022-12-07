@@ -4,7 +4,7 @@ Cookie = '53616c7465645f5f8a4aa11dc86c69ad218034cde4908cf8fb9a57240654f13d56f66c
 CookieDic = {
         'session':Cookie
     }
-AGENT_DATA = {"User-Agent": "advent-of-code-automaton"}
+AGENT_DATA = {"User-Agent": "advent-of-code-automaton luke.harrison.lh04@gmail.com +44 7392068340"}
 
 def HandleLocalData(filename):
     with open(f"./Inputs/{filename}.txt") as file:

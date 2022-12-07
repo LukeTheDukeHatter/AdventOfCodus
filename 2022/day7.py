@@ -24,11 +24,18 @@ def p1(submit=False):
     #         f.write(x+'\n')
 
 
-    # total = [line[2:] if line.startswith('$ cd') else 'mk'+line if line.startswith('dir') else f"echo \" \" > {line.split(' ')[0]}.txt" for line in input if not line.startswith('$ ls')]
-    # [open('./Day7FAroundFindOutFolder/runme.sh','w').write(x+'\n') for x in total]
+    # [open('./Day7FAroundFindOutFolder/runme.sh','a+').write(x+'\n') for x in [line[2:] if line.startswith('$ cd') else 'mk'+line if line.startswith('dir') else f"echo \" \" > {line.split(' ')[0]}.txt" for line in input if not line.startswith('$ ls')]]
+    # lest = [os.path.join(root, file).replace('./Day7FAroundFindOutFolder/','').replace('.txt','') for root,f,file in [(root,first,files) for root,first,files in os.walk(path)] if print(file)]
 
 
-    lest = [os.path.join(root, file).replace('./Day7FAroundFindOutFolder/','').replace('.txt','') for file in [files for root,first,files in os.walk(path)] if file.endswith('.txt')]
+
+    path = './Day7FAroundFindOutFolder'
+    lest = []
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if file.endswith(".txt"):
+                lest.append(os.path.join(root, file).replace('./Day7FAroundFindOutFolder/','').replace('.txt',''))
+
 
     data = {}
 
@@ -39,8 +46,8 @@ def p1(submit=False):
 
     total = 0
 
-    for k,v in data:
-        if v < 100000:
+    for k,v in data.items():
+        if v <= 100000:
             total += v
 
     if submit: AocBot.submit('1', total)
@@ -61,3 +68,6 @@ def p2(submit=False):
 p1(submit=False)
 p2(submit=False)
 onels()
+
+# Solution for part one: 1915606
+# Solution for part two: 5025657
