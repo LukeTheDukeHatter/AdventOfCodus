@@ -1,5 +1,5 @@
 from aoc import AdventOfCode as AOC
-AocBot = AOC('2','2022')
+AocBot = AOC('','2022')
 input = AocBot.data
 
 # Part 1
@@ -13,6 +13,7 @@ def p1(submit=False):
         
 def onels():
     ...
+    
 # Part 2
 def p2(submit=False):
     total = 0
@@ -25,3 +26,4 @@ def p2(submit=False):
 p1(submit=False)
 p2(submit=False)
 onels()
+
